@@ -155,6 +155,21 @@ cargo test                       # 150+ автотестов
 scripts\build-release.ps1        # полный дистрибутив в dist\
 ```
 
+## Технологии и материалы
+
+Проект — практическое исследование сетевых протоколов. Основные темы
+и материалы для изучения:
+
+- [TCP/IP](https://www.rfc-editor.org/rfc/rfc9293) — протокол управления передачей (RFC 9293)
+- [TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446) — транспортное шифрование (RFC 8446)
+- [QUIC](https://www.rfc-editor.org/rfc/rfc9000) — транспорт поверх UDP (RFC 9000)
+- [DNS](https://www.rfc-editor.org/rfc/rfc1035) — доменные имена (RFC 1035);
+  [DNS over HTTPS](https://www.rfc-editor.org/rfc/rfc8484) (RFC 8484)
+- [DPI](https://ru.wikipedia.org/wiki/Deep_Packet_Inspection) — глубокий анализ пакетов (обзор)
+- [The Rust Programming Language](https://doc.rust-lang.org/book/) — «Rustbook»,
+  официальная книга по языку Rust
+- [WinDivert](https://github.com/basil00/Divert) — драйвер перехвата пакетов Windows
+
 ## Документация
 
 | Документ | Содержание |
