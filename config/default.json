@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "log_level": "info",
+  "active_profile": null,
+  "game_filter": {
+    "mode": "disabled",
+    "tcp_ports": "1024-65535",
+    "udp_ports": "1024-65535"
+  },
+  "ipset_mode": "loaded",
+  "check_updates": false,
+  "engine": {
+    "queue_length": 4096,
+    "queue_time_ms": 2000,
+    "queue_size_kb": 8192
+  }
+}

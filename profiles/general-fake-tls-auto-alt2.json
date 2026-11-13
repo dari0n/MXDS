@@ -1,0 +1,377 @@
+{
+  "id": "general-fake-tls-auto-alt2",
+  "meta": {
+    "name": "general (FAKE TLS AUTO ALT2)",
+    "description": "Импортировано из стратегии оригинала «general (FAKE TLS AUTO ALT2)»",
+    "version": "1.0",
+    "origin": "flowseal-1.10.4"
+  },
+  "wf_tcp": "80,443,2053,2083,2087,2096,8443,GameFilterTCP",
+  "wf_udp": "443,19294-19344,50000-50100,GameFilterUDP",
+  "rules": [
+    {
+      "protocol": "Udp",
+      "ports": "443",
+      "l7": [],
+      "hostlists": [
+        "lists/list-general.txt",
+        "lists/list-general-user.txt"
+      ],
+      "hostlist_domains": [],
+      "hostlist_exclude": [
+        "lists/list-exclude.txt",
+        "lists/list-exclude-user.txt"
+      ],
+      "hostlist_exclude_domains": [],
+      "ipsets": [],
+      "ipset_exclude": [
+        "lists/ipset-exclude.txt",
+        "lists/ipset-exclude-user.txt"
+      ],
+      "desync": {
+        "techniques": [
+          "Fake"
+        ],
+        "repeats": 11,
+        "split_pos": [],
+        "seqovl": null,
+        "seqovl_pattern": null,
+        "fooling": [],
+        "badseq_increment": 0,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {
+          "quic": "bin/quic_initial_www_google_com.bin"
+        },
+        "fake_tls_mod": null,
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Udp",
+      "ports": "19294-19344,50000-50100",
+      "l7": [
+        "discord",
+        "stun"
+      ],
+      "hostlists": [],
+      "hostlist_domains": [],
+      "hostlist_exclude": [],
+      "hostlist_exclude_domains": [],
+      "ipsets": [],
+      "ipset_exclude": [],
+      "desync": {
+        "techniques": [
+          "Fake"
+        ],
+        "repeats": 6,
+        "split_pos": [],
+        "seqovl": null,
+        "seqovl_pattern": null,
+        "fooling": [],
+        "badseq_increment": 0,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {
+          "discord": "bin/ACTIVE_DISCORD_UDP.bin",
+          "stun": "bin/ACTIVE_DISCORD_UDP.bin"
+        },
+        "fake_tls_mod": null,
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Tcp",
+      "ports": "2053,2083,2087,2096,8443",
+      "l7": [],
+      "hostlists": [],
+      "hostlist_domains": [
+        "discord.media"
+      ],
+      "hostlist_exclude": [],
+      "hostlist_exclude_domains": [],
+      "ipsets": [],
+      "ipset_exclude": [],
+      "desync": {
+        "techniques": [
+          "Fake",
+          "Multisplit"
+        ],
+        "repeats": 8,
+        "split_pos": [
+          {
+            "Absolute": 1
+          }
+        ],
+        "seqovl": 681,
+        "seqovl_pattern": "bin/tls_clienthello_www_google_com.bin",
+        "fooling": [
+          "BadSeq"
+        ],
+        "badseq_increment": 10000000,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {},
+        "fake_tls_mod": "rnd,dupsid,sni=www.google.com",
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Tcp",
+      "ports": "443",
+      "l7": [],
+      "hostlists": [
+        "lists/list-google.txt"
+      ],
+      "hostlist_domains": [],
+      "hostlist_exclude": [],
+      "hostlist_exclude_domains": [],
+      "ipsets": [],
+      "ipset_exclude": [],
+      "desync": {
+        "techniques": [
+          "Fake",
+          "Multisplit"
+        ],
+        "repeats": 8,
+        "split_pos": [
+          {
+            "Absolute": 1
+          }
+        ],
+        "seqovl": 681,
+        "seqovl_pattern": "bin/tls_clienthello_www_google_com.bin",
+        "fooling": [
+          "BadSeq"
+        ],
+        "badseq_increment": 10000000,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {},
+        "fake_tls_mod": "rnd,dupsid,sni=www.google.com",
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": true
+    },
+    {
+      "protocol": "Tcp",
+      "ports": "80,443",
+      "l7": [],
+      "hostlists": [
+        "lists/list-general.txt",
+        "lists/list-general-user.txt"
+      ],
+      "hostlist_domains": [],
+      "hostlist_exclude": [
+        "lists/list-exclude.txt",
+        "lists/list-exclude-user.txt"
+      ],
+      "hostlist_exclude_domains": [],
+      "ipsets": [],
+      "ipset_exclude": [
+        "lists/ipset-exclude.txt",
+        "lists/ipset-exclude-user.txt"
+      ],
+      "desync": {
+        "techniques": [
+          "Fake",
+          "Multisplit"
+        ],
+        "repeats": 8,
+        "split_pos": [
+          {
+            "Absolute": 1
+          }
+        ],
+        "seqovl": 681,
+        "seqovl_pattern": "bin/tls_clienthello_www_google_com.bin",
+        "fooling": [
+          "BadSeq"
+        ],
+        "badseq_increment": 10000000,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {
+          "http": "bin/tls_clienthello_www_sferum_ru.bin"
+        },
+        "fake_tls_mod": "rnd,dupsid,sni=www.google.com",
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Udp",
+      "ports": "443",
+      "l7": [],
+      "hostlists": [],
+      "hostlist_domains": [],
+      "hostlist_exclude": [
+        "lists/list-exclude.txt",
+        "lists/list-exclude-user.txt"
+      ],
+      "hostlist_exclude_domains": [],
+      "ipsets": [
+        "lists/ipset-all.txt"
+      ],
+      "ipset_exclude": [
+        "lists/ipset-exclude.txt",
+        "lists/ipset-exclude-user.txt"
+      ],
+      "desync": {
+        "techniques": [
+          "Fake"
+        ],
+        "repeats": 11,
+        "split_pos": [],
+        "seqovl": null,
+        "seqovl_pattern": null,
+        "fooling": [],
+        "badseq_increment": 0,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {
+          "quic": "bin/quic_initial_www_google_com.bin"
+        },
+        "fake_tls_mod": null,
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Tcp",
+      "ports": "80,443,8443",
+      "l7": [],
+      "hostlists": [],
+      "hostlist_domains": [],
+      "hostlist_exclude": [
+        "lists/list-exclude.txt",
+        "lists/list-exclude-user.txt"
+      ],
+      "hostlist_exclude_domains": [],
+      "ipsets": [
+        "lists/ipset-all.txt"
+      ],
+      "ipset_exclude": [
+        "lists/ipset-exclude.txt",
+        "lists/ipset-exclude-user.txt"
+      ],
+      "desync": {
+        "techniques": [
+          "Fake",
+          "Multisplit"
+        ],
+        "repeats": 8,
+        "split_pos": [
+          {
+            "Absolute": 1
+          }
+        ],
+        "seqovl": 681,
+        "seqovl_pattern": "bin/tls_clienthello_www_google_com.bin",
+        "fooling": [
+          "BadSeq"
+        ],
+        "badseq_increment": 10000000,
+        "cutoff": null,
+        "any_protocol": false,
+        "fakes": {
+          "http": "bin/tls_clienthello_www_sferum_ru.bin"
+        },
+        "fake_tls_mod": "rnd,dupsid,sni=www.google.com",
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Tcp",
+      "ports": "GameFilterTCP",
+      "l7": [],
+      "hostlists": [],
+      "hostlist_domains": [],
+      "hostlist_exclude": [],
+      "hostlist_exclude_domains": [],
+      "ipsets": [
+        "lists/ipset-all.txt"
+      ],
+      "ipset_exclude": [
+        "lists/ipset-exclude.txt",
+        "lists/ipset-exclude-user.txt"
+      ],
+      "desync": {
+        "techniques": [
+          "Fake",
+          "Multisplit"
+        ],
+        "repeats": 8,
+        "split_pos": [
+          {
+            "Absolute": 1
+          }
+        ],
+        "seqovl": 681,
+        "seqovl_pattern": "bin/tls_clienthello_www_google_com.bin",
+        "fooling": [
+          "BadSeq"
+        ],
+        "badseq_increment": 10000000,
+        "cutoff": 3,
+        "any_protocol": true,
+        "fakes": {
+          "http": "bin/tls_clienthello_www_sferum_ru.bin",
+          "unknown": "bin/tls_clienthello_www_sferum_ru.bin"
+        },
+        "fake_tls_mod": "rnd,dupsid,sni=www.google.com",
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    },
+    {
+      "protocol": "Udp",
+      "ports": "GameFilterUDP",
+      "l7": [],
+      "hostlists": [],
+      "hostlist_domains": [],
+      "hostlist_exclude": [],
+      "hostlist_exclude_domains": [],
+      "ipsets": [
+        "lists/ipset-all.txt"
+      ],
+      "ipset_exclude": [
+        "lists/ipset-exclude.txt",
+        "lists/ipset-exclude-user.txt"
+      ],
+      "desync": {
+        "techniques": [
+          "Fake"
+        ],
+        "repeats": 10,
+        "split_pos": [],
+        "seqovl": null,
+        "seqovl_pattern": null,
+        "fooling": [],
+        "badseq_increment": 0,
+        "cutoff": 2,
+        "any_protocol": true,
+        "fakes": {
+          "unknown-udp": "bin/ACTIVE_GAME_UDP.bin"
+        },
+        "fake_tls_mod": null,
+        "hostfakesplit_mod": null,
+        "fakedsplit_pattern": null
+      },
+      "ip_id_zero": false
+    }
+  ],
+  "compat": "NotTested"
+}
